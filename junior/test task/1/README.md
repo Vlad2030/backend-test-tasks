@@ -1,12 +1,12 @@
 # Junior Backend Developer Test Task
 
-You need to develop a REST API for managing pets (dogs and cats).
+You need to develop a asynchronous REST API for managing pets (dogs and cats).
 
 You should use:
-- Python 3.x
-- FastAPI
-- SQLAIchemy
-- PostgreSQL
+- Your prefer programming language
+- Backend framework
+- Your prefer Database
+- Database ORM
 - Docker-compose
 
 The result of the task should be uploaded to a public Git repository.
