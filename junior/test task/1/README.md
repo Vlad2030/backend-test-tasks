@@ -20,10 +20,7 @@ Create a pet
 ##### *request body*
 ```json
 {
-  // to be designed (already designed)
-  "name": "boy",
-  "age": 7,
-  "type": "dog"
+  // to be designed 
 }
 ```
 
