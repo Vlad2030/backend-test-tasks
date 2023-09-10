@@ -12,10 +12,13 @@ DATABASE_URL = (f"postgresql+asyncpg://"
 Base = declarative_base()
 metadata = MetaData()
 engine = create_async_engine(url=DATABASE_URL, echo=False)
-async_session = sessionmaker(engine, expire_on_commit=False, class_=AsyncSession)
+async_session = sessionmaker(engine,
+                             expire_on_commit=False, class_=AsyncSession)
+
 
 def create_all(engine: AsyncEngine) -> None:
     return metadata.create_all(engine)
+
 
 async def get_async_session() -> AsyncSession:
     async with async_session() as session:

@@ -25,7 +25,7 @@ class Pets:
             self,
             id: int,
     ) -> typing.Union[PetsSchema, None]:
-        query = select(PetsDatabase).where(PetsDatabase.id==id)
+        query = select(PetsDatabase).where(PetsDatabase.id == id)
         result = await self.session.execute(query)
         return result.scalars().first()
 
@@ -33,7 +33,7 @@ class Pets:
             self,
             id: int,
     ) -> typing.Union[PetsSchema, None]:
-        query = delete(PetsDatabase).where(PetsDatabase.id==id)
+        query = delete(PetsDatabase).where(PetsDatabase.id == id)
         result = await self.session.execute(query)
         if result is None:
             return result
@@ -48,7 +48,7 @@ class Pets:
         deleted = int()
         errors = list()
         for id in ids:
-            query = delete(PetsDatabase).where(PetsDatabase.id==id)
+            query = delete(PetsDatabase).where(PetsDatabase.id == id)
             result = await self.session.execute(query)
             if result is None:
                 errors.append({

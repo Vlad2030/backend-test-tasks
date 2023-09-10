@@ -1,4 +1,4 @@
-DATABASE_LINK: str ="postgresql+asyncpg://{}:{}@{}:{}/{}"
+DATABASE_LINK: str = "postgresql+asyncpg://{}:{}@{}:{}/{}"
 
 
 def url(
