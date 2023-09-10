@@ -1,8 +1,8 @@
 import typing
 
 from models.pets import PetsDatabase
-from schemas.pets import PetsSchema, DeletePets
-from sqlalchemy import delete, select, insert
+from schemas.pets import DeletePets, PetsSchema
+from sqlalchemy import delete, insert, select
 from sqlalchemy.ext.asyncio import AsyncSession
 
 

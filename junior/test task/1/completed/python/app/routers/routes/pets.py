@@ -1,10 +1,8 @@
 from core.crud.pets import Pets
 from core.database import AsyncSession, get_async_session
-from fastapi import APIRouter, Depends, status
-from fastapi.exceptions import HTTPException
+from fastapi import APIRouter, Depends
 from fastapi.responses import JSONResponse
 from schemas.pets import PetsSchema
-
 
 router = APIRouter(prefix="/pets")
 
