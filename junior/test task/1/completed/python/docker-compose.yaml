@@ -4,7 +4,7 @@ services:
   backend: 
     container_name: ${SERVER_CONTAINER_NAME}
     build: ./main_worker
-    command: bash start.sh debug
+    command: bash start.sh
     ports:
       - ${SERVER_PORT}
     depends_on:
@@ -12,19 +12,19 @@ services:
     networks:
       - database-network
       - api_network
-    # deploy:
-    #   restart_policy:
-    #     condition: on-failure
-    #     delay: 5s
-    #     max_attempts: 3
-    #     window: 120
-    #   resources:
-    #     limits:
-    #       cpus: '1.00'
-    #       memory: 512M
-    #     reservations:
-    #       cpus: '1.00'
-    #       memory: 256M
+    deploy:
+      restart_policy:
+        condition: on-failure
+        delay: 5s
+        max_attempts: 3
+        window: 120
+      resources:
+        limits:
+          cpus: '1.00'
+          memory: 512M
+        reservations:
+          cpus: '1.00'
+          memory: 256M
 
   database:
     container_name: ${POSTGRES_CONTAINER_NAME}
@@ -37,14 +37,19 @@ services:
       - database-network
     volumes:
       - postgres:/data/postgres
-    # deploy:
-    #   resources:
-    #     limits:
-    #       cpus: '0.50'
-    #       memory: 128M
-    #     reservations:
-    #       cpus: '0.50'
-    #       memory: 64M 
+    deploy:
+      restart_policy:
+        condition: on-failure
+        delay: 5s
+        max_attempts: 3
+        window: 120
+      resources:
+        limits:
+          cpus: '0.50'
+          memory: 128M
+        reservations:
+          cpus: '0.50'
+          memory: 64M 
 
 
 networks:
